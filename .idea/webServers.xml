@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="947066a2-8c63-4960-840c-6ea55c1bd90b" name="Ix-Walk">
+        <fileTransfer rootFolder="/var/www/html/ix-walk" accessType="SFTP" host="127.0.0.1" port="2222" sshConfigId="09cd8aae-7e60-443e-9f43-b7ef167909f2" sshConfig="gm@127.0.0.1:2222 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="0d8fac0b-28cb-4e00-b00d-c5e1ea22efab" name="DebianEcole">
+        <fileTransfer rootFolder="/var/www/html/matheoApp" accessType="SFTP" host="10.10.1.111" port="2222" sshConfigId="c92aad41-a7bf-42d8-953d-bec3b62d8f12" sshConfig="matheodebian@10.10.1.111:2222 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="f247f40e-c464-4546-be97-86be56b370da" name="Maison">
+        <fileTransfer rootFolder="/var/www/html" accessType="SFTP" host="192.168.0.29" port="22" sshConfigId="16eabe7c-50a4-49bb-9bfd-bc8f56e8f343" sshConfig="gm@192.168.0.29:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
