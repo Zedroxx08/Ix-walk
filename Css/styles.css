@@ -434,7 +434,7 @@ footer nav ul li a{
     color: #B36205;
     font-size: 30px;
     font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-    
+
     position: relative;
 }
 footer nav ul li a::before,
@@ -503,6 +503,11 @@ main#formulaire h1{
     color: #B36205;
     text-align: center;
     padding: 2%;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire p{
+    color: #FFF;
+    text-align: center;
     font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
 }
 main#formulaire .containerForm{
@@ -581,4 +586,166 @@ main#formulaire .containerForm form p a:hover{
 }
 main#formulaire .containerForm form input[type=submit]{
     cursor: pointer;
+}
+/* Css de la page produit */
+main#produit h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #B36205;
+    padding: 10px;
+}
+main#produit > div{
+    padding: 20px;
+    height: 100vh;
+    display: grid;
+    gap: 10px;
+    grid-template-rows: 100px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+main#produit > div > div img{
+    width: 100%;
+    height: 35vh;
+    border-radius: 33px;
+}
+main#produit > div .Titre{
+    display: flex;
+    align-items: center;
+    grid-column: 1 / -1;
+}
+main#produit > div .Texte{
+    grid-row: 2 / 4;
+}
+main#produit > div .Titre h1{
+    color: #B36205;
+    font-size: 35px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#produit > div .Texte p{
+    font-size: 25px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+    color: #666;
+}
+main#produit > div > div .Achat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    margin-top: auto;
+}
+main#produit > div > div .Achat ul{
+    background-color: #666;
+    border-radius: 10px;
+    padding:3px;
+}
+main#produit > div > div .Achat ul li{
+    color: #B36205;
+}
+main#produit > div > div .Achat ul li p{
+    color: #FFF;
+}
+main#produit > div > div .Achat a{
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+    font-size: 20px;
+    padding: 15px 60px 15px 60px;
+    background-color: #666;
+    text-decoration: none;
+    color: #FFFAFA;
+    border-radius: 10px;
+}
+main#produit .Nouveautes .Titre{
+    justify-content: flex-start;
+}
+main#produit .Nouveautes .Texte{
+    grid-column: 3 / 5;
+}
+main#produit .LePlusVendu .Titre{
+    justify-content: flex-end;
+}
+main#produit .LePlusVendu .Texte{
+    grid-column: 1 / 3;
+}
+main#produit .Autres{
+    height: 60vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 50vh;
+}
+main#produit .Autres .Cacher{
+    display: none;
+}
+main#produit .Autres .Titre{
+    justify-content: center;
+}
+main#produit p#afficheplus{
+    display: inline-block;
+    color: #B36205;
+    text-decoration: #B36205 underline;
+    padding-left: 20px;
+}
+main#produit p#affichemoins{
+    display: none;
+    color: #B36205;
+    text-decoration: #B36205 underline;
+    padding-left: 20px;
+}
+main#produit p#afficheplus:hover{
+    cursor: pointer;
+}
+main#produit p#affichemoins:hover{
+    cursor: pointer;
+}
+/* Page de profil */
+main#profil{
+    background-color: #000;
+}
+main#profil h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #B36205;
+}
+main#profil ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    background-color: #666;
+}
+main#profil a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    transition: color .3s ease-in-out;
+}
+main#profil a:hover{
+    color: #B36205;
+}
+/*Css de la pages admin*/
+main#admin{
+    background-color: #000;
+}
+main#admin h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #B36205;
+}
+main#admin ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    background-color: #666;
+}
+main#admin a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    transition: color .3s ease-in-out;
+}
+main#admin a:hover{
+    color: #B36205;
 }

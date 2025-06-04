@@ -1,17 +1,18 @@
 <?php
 include_once '../Config/config.php';
 include_once '../Config/AntiXss.php';
-global $lang,$messages;
-$_SESSION['info'] = NULL;
+include_once '../Config/connexpdo.inc.php';
+$_SESSION['achat'] = NULL;
+$conn = connexpdo("Myparams");
+global $lang, $messages;
 if(isset($_SESSION['connexion'])){
-    if($_SESSION['connexion'] === true){
+    if($_SESSION['connexion'] === false){
+        header('Location: formulaire.php');
+        exit();
+    }elseif($_SESSION['mail'] !== "matheo.gilles.student@elmarche.be"){
         header('Location: profil.php');
+        exit();
     }
-}
-if (isset($_SESSION['infoConn'])){
-    $info = $_SESSION['infoConn'];
-}else{
-    $info = "";
 }
 ?>
 <!doctype html>
@@ -39,19 +40,38 @@ if (isset($_SESSION['infoConn'])){
         </ul>
     </nav>
 </header>
-<main id="formulaire" class="Connexion">
-    <h1><?php echo secu($messages['PageConn']); ?></h1>
-    <p><?php echo secu($info)?></p>
-    <div class="containerForm">
-        <form method="get" action="ConnexionProfil.php" id="Connecter">
-            <label for="mail"><?php echo secu($messages['mail']); ?> :</label><br/>
-            <input type="email" id="mail" name="mail" placeholder="<?php echo secu($messages['votre'] . $messages['mail']); ?>" autocomplete="off" required><br/>
-            <label for="password"><?php echo secu($messages['mdp']); ?> :</label><br/>
-            <input type="password" id="password" name="password" placeholder="<?php echo secu($messages['votre'] . $messages['mdp']); ?>" autocomplete="off" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" required><br/>
-            <input type="submit" id="submit" value="<?php echo secu($messages['connect']); ?>"><br/>
-            <p><?php echo secu($messages['NotAccount']); ?><a href="formulaire.php"><?php echo secu($messages['Sub']); ?></a></p>
-        </form>
-    </div>
+<main id="admin">
+    <h1><?php echo secu($messages['Admin'])?></h1>
+    <?php
+    if(isset($_SESSION['SupUsers'])){
+        echo "<h1>" . secu($_SESSION['SupUsers']) . "</h1>";
+    }
+    ?>
+    <ul>
+    <?php
+    $emailAdmin = $_SESSION['mail'];
+    try {
+        $stmt = $conn->prepare("SELECT id,nom,prenom,mail FROM users WHERE mail != :mail");
+        $stmt->execute(['mail' => $emailAdmin]);
+        $users = $stmt->fetchAll();
+        if ($users) {
+            foreach ($users as $user) {
+                $id = $user['id'];
+                $nom = $user['nom'];
+                $prenom = $user['prenom'];
+                $mail = $user['mail'];
+
+                echo "<li>" . secu($id) . " - " . secu($nom) . " - " . secu($prenom) . " - " . secu($mail) ."<a href='supprimeradmin.php?id_user=" . $id . "'>". secu($messages['Supprimer']) ."</a></li>";
+            }
+        } else {
+            echo "<li>". secu($messages['UserPasTrouver']) ."</li>";
+        }
+    } catch (PDOException $e) {
+        echo "<li>". secu($messages['RecupUser']) ."</li>";
+    }
+    ?>
+    </ul>
+    <a href="logout.php"><?php echo secu($messages['Deconnexion'])?></a>
 </main>
 
 <footer id="footer">
