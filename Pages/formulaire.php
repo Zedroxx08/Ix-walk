@@ -60,7 +60,7 @@ if (isset($_SESSION['info'])){
             <input type="tel" id="num" name="NumInsc" placeholder="<?php echo secu($messages['votre'] . $messages['numero']) ?>" autocomplete="off" required><br/>
 
             <label for="pays"><?php echo secu($messages['pays']) ?> :</label><br/>
-            <select id="pays" name="PaysInsc" required>
+            <select id="pays" name="PaysInsc" required><!--Il y a une partie que je crédite à ce lien : https://gist.github.com/danrovito/977bcb97c9c2dfd3398a -->
                 <option value="" disabled selected><?php echo secu($messages['votre'] . $messages['pays'])?></option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
@@ -337,10 +337,10 @@ if (isset($_SESSION['info'])){
             </ul>
         </nav>
         <div class="icone">
-            <img src="../Images/instagram.png" alt="<?php echo secu($messages['alt9']) ?>">
-            <img src="../Images/youtube.png" alt="<?php echo secu($messages['alt10']) ?>">
-            <img src="../Images/snapchat.png" alt="<?php echo secu($messages['alt11']) ?>">
-            <img src="../Images/facebook.png" alt="<?php echo secu($messages['alt12']) ?>">
+            <a href="https://www.instagram.com/gilles.matheo08/" target="_blank"><img src="../Images/instagram.png" alt="<?php echo secu($messages['alt9'])?>"></a>
+            <a href="https://www.youtube.com/@Zedroxx08/" target="_blank"><img src="../Images/youtube.png" alt="<?php echo secu($messages['alt10'])?>"></a>
+            <a href="https://www.snapchat.com/add/matheogilles/" target="_blank"><img src="../Images/snapchat.png" alt="<?php echo secu($messages['alt11'])?>"></a>
+            <a href="https://www.facebook.com/Gilles.Matheo08/" target="_blank"><img src="../Images/facebook.png" alt="<?php echo secu($messages['alt12'])?>"></a>
         </div>
         <div class="copyright">
             <p>© copyright</p>

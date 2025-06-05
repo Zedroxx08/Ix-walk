@@ -1,12 +1,16 @@
+/*Importation des font-family grace a google font*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+/*Supprime tout les margin et padding de base*/
 *{
     margin: 0;
     padding: 0;
 }
+/*Change de curseur quand on passe sur un lien*/
 a{
     cursor: pointer;
 }
+/*Css du header*/
 header{
     background-color: #DDD;
     padding: 50px;
@@ -18,7 +22,7 @@ header img#logo{
     height: 100px;
     transition: rotate 1s ease-out;
 }
-header img#logo:hover{
+header img#logo:hover{/*Fait un tour complet de 360deg quand on passe la souris*/
     rotate: 360deg;
 }
 header h1#NomSite{
@@ -46,7 +50,7 @@ header nav ul li a{
     position: relative;
 }
 header nav ul li a::before,
-header nav ul li a::after{
+header nav ul li a::after{/*Content vide car on veut pas afficher de texte taille de 0 car on augmente au hover et transition de 1s avec un position absolute par rapport a la balise a*/
     content: '';
     position: absolute;
     height: 5px;
@@ -56,15 +60,16 @@ header nav ul li a::after{
     background: linear-gradient(to right, #E44D2E,#FF7F50);
     transition: width 1s ease;
 }
-header nav ul li a::after {
+header nav ul li a::after {/*Donne la couleur de dégradé sauf qu'on fini a gauche(couleur clair premier) et lui donne la position haut gauche*/
     background: linear-gradient(to left, #E44D2E,#FF7F50);
     top: 0;
     left: 0;
 }
 header nav ul li a:hover:before,
-header nav ul li a:hover:after{
+header nav ul li a:hover:after{/*Augmente la taille du ::before et ::after au hover*/
     width: 100%;
 }
+/*Css de la page index*/
 main{
     background-color: #F5F5F5;
 }
@@ -78,6 +83,7 @@ main .hero img{
     width: 25vw;
     border-radius: 20%;
     display: block;
+    box-shadow: #000 0 0 25px;
 }
 main .hero #images1{
     grid-row: 2 / 14;
@@ -94,7 +100,7 @@ main .hero #images2{
     animation-duration: 1s;
     animation-name: image2;
 }
-@keyframes image1{
+@keyframes image1{/*Donne une position au commencement et fini en 0 car on ne veut pas que l'image prenne du margin-left a la fin de l'animation */
     from{
         margin-left: 150%;
     }
@@ -102,7 +108,7 @@ main .hero #images2{
         margin-left: 0;
     }
 }
-@keyframes image2 {
+@keyframes image2 {/*Position plus grand car on veut que l'image du dessous soit la premier a arrivé*/
     from{
         margin-left: 250%;
     }
@@ -114,6 +120,10 @@ main .hero .slogan{
     grid-row: 12 / 15;
     grid-column: 4 / 8;
     background-color: #FFFAFA;
+    box-shadow: #000 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 main .hero .slogan h1{
     color: #B36205;
@@ -146,6 +156,7 @@ main .containerAp > div{
     padding: 10px;
     text-align: center;
     transition: transform .3s ease-in-out;
+    box-shadow: #000 0 0 10px;
 }
 main .containerAp > div:hover{
     transform: scale(1.8);
@@ -351,6 +362,270 @@ main .partenaire img{
     border-radius: 15%;
     width: 30%;
 }
+/* Css de la page produit */
+main#produit h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #B36205;
+    padding: 10px;
+}
+main#produit > div{
+    padding: 20px;
+    height: 100vh;
+    display: grid;
+    gap: 10px;
+    grid-template-rows: 100px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+main#produit > div > div img{
+    width: 100%;
+    height: 35vh;
+    border-radius: 33px;
+}
+main#produit > div .Titre{
+    display: flex;
+    align-items: center;
+    grid-column: 1 / -1;
+}
+main#produit > div .Texte{
+    grid-row: 2 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main#produit > div .Titre h1{
+    color: #B36205;
+    font-size: 35px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#produit > div .Texte p{
+    font-size: 25px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+    color: #666;
+    width: 60%;
+}
+main#produit > div > div .Achat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    margin-top: auto;
+}
+main#produit > div > div .Achat ul{
+    background-color: #666;
+    border-radius: 10px;
+    padding:3px;
+}
+main#produit > div > div .Achat ul li{
+    color: #B36205;
+}
+main#produit > div > div .Achat ul li p{
+    color: #FFF;
+}
+main#produit > div > div .Achat a{
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+    font-size: 20px;
+    padding: 15px 60px 15px 60px;
+    background-color: #666;
+    text-decoration: none;
+    color: #FFFAFA;
+    border-radius: 10px;
+}
+main#produit .Nouveautes .Titre{
+    justify-content: flex-start;
+}
+main#produit .Nouveautes .Texte{
+    grid-column: 3 / 5;
+}
+main#produit .LePlusVendu .Titre{
+    justify-content: flex-end;
+}
+main#produit .LePlusVendu .Texte{
+    grid-column: 1 / 3;
+}
+main#produit .Autres{
+    height: 60vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 50vh;
+}
+main#produit .Autres .Cacher{
+    display: none;
+}
+main#produit .Autres .Titre{
+    justify-content: center;
+}
+main#produit p#afficheplus{
+    display: inline-block;
+    color: #B36205;
+    text-decoration: #B36205 underline;
+    padding-left: 20px;
+}
+main#produit p#affichemoins{
+    display: none;
+    color: #B36205;
+    text-decoration: #B36205 underline;
+    padding-left: 20px;
+}
+main#produit p#afficheplus:hover{
+    cursor: pointer;
+}
+main#produit p#affichemoins:hover{
+    cursor: pointer;
+}
+/*Css page formulaire*/
+main#formulaire{
+    background-color: black;
+}
+main#formulaire.Inscription{
+    height: 120vh;
+}
+main#formulaire.Connexion{
+    height: 60vh;
+}
+main#formulaire h1{
+    color: #B36205;
+    text-align: center;
+    padding: 2%;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire p{
+    color: #FFF;
+    text-align: center;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire .containerForm{
+    width: 80%;
+    margin: 0 10% 10% 10%;
+    background-color: #FFFAFA;
+    text-align: center;
+    padding: 2% 0 2% 0;
+}
+main#formulaire .containerForm form input{
+    width: 40%;
+    text-align: center;
+    border-radius: 16px;
+    font-size: 20px;
+    border: none;
+    padding: 20px;
+    margin: 10px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire .containerForm form input::placeholder{
+    color: #B36205;
+    opacity: 40%;
+    text-align: center;
+}
+main#formulaire .containerForm form input:focus {/*Quand on est au focus(click/sur le input) va retire les box de base va créer une box effet tiret créer un background qui est en dégradé un taille de 300/300% et va activer une animation qui dure 5s qui change le background-position et repete animation a l'infini*/
+    border: 2px dashed #000;
+    outline: none;
+    background: linear-gradient(90deg, #B36205, #FFF, #B36205);
+    background-size: 300% 300%;
+    animation: Backgroundcolor 5s linear infinite;
+}
+
+@keyframes Backgroundcolor {
+    0% {
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+main#formulaire .containerForm form label{
+    color: #000;
+    font-size: 30px;
+    margin: 10px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire .containerForm form select {
+    width: 42%;
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 20px;
+    border: none;
+    margin: 10px;
+    text-align: center;
+    color: #B36205;
+    opacity: 40%;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire .containerForm form p{
+    color: #666;
+    font-size: 17px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire .containerForm form p a{
+    color: #666;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
+}
+main#formulaire .containerForm form p a:hover{
+    text-decoration: dashed underline;
+}
+main#formulaire .containerForm form input[type=submit]{
+    cursor: pointer;
+}
+/* Page de profil */
+main#profil{
+    background-color: #000;
+}
+main#profil h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #B36205;
+}
+main#profil ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    background-color: #666;
+}
+main#profil a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    transition: color .3s ease-in-out;
+}
+main#profil a:hover{
+    color: #B36205;
+}
+/*Css de la pages admin*/
+main#admin{
+    background-color: #000;
+}
+main#admin h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #B36205;
+}
+main#admin ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    background-color: #666;
+}
+main#admin a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    transition: color .3s ease-in-out;
+}
+main#admin a:hover{
+    color: #B36205;
+}
+/*Css du footer*/
 footer {
     background-color: #DDD;
 }
@@ -438,7 +713,7 @@ footer nav ul li a{
     position: relative;
 }
 footer nav ul li a::before,
-footer nav ul li a::after{
+footer nav ul li a::after{/*Même animation sur les liens de la nav que dans le header*/
     content: '';
     position: absolute;
     height: 5px;
@@ -474,7 +749,7 @@ footer .containerFooter .icone{
     grid-row: 2 / 3;
     grid-column: 8 / 11;
 }
-footer .containerFooter .icone img{
+footer .containerFooter .icone a img{
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -488,264 +763,4 @@ footer .containerFooter .copyright{
 }
 footer .containerFooter .copyright p{
     font-size: 25px;
-}
-/*Css page formulaire*/
-main#formulaire{
-    background-color: black;
-}
-main#formulaire.Inscription{
-    height: 120vh;
-}
-main#formulaire.Connexion{
-    height: 60vh;
-}
-main#formulaire h1{
-    color: #B36205;
-    text-align: center;
-    padding: 2%;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#formulaire p{
-    color: #FFF;
-    text-align: center;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#formulaire .containerForm{
-    width: 80%;
-    margin: 0 10% 10% 10%;
-    background-color: #FFFAFA;
-    text-align: center;
-    padding: 2% 0 2% 0;
-}
-main#formulaire .containerForm form input{
-    width: 40%;
-    text-align: center;
-    border-radius: 16px;
-    font-size: 20px;
-    border: none;
-    padding: 20px;
-    margin: 10px;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#formulaire .containerForm form input::placeholder{
-    color: #B36205;
-    opacity: 40%;
-    text-align: center;
-}
-main#formulaire .containerForm form input:focus {
-    text-align: center;
-    border: 2px dashed #000;
-    outline: none;
-    background: linear-gradient(90deg, #B36205, #FFF, #B36205);
-    background-size: 300% 300%;
-    animation: Backgroundcolor 5s linear infinite;
-}
-
-@keyframes Backgroundcolor {
-    0% {
-        background-position: 0 50%;
-    }
-    50%{
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
-}
-main#formulaire .containerForm form label{
-    color: #000;
-    font-size: 30px;
-    margin: 10px;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#formulaire .containerForm form select {
-    width: 42%;
-    padding: 20px;
-    border-radius: 16px;
-    font-size: 20px;
-    border: none;
-    margin: 10px;
-    text-align: center;
-    color: #B36205;
-    opacity: 40%;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#formulaire .containerForm form p{
-    color: #666;
-    font-size: 17px;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#formulaire .containerForm form p a{
-    color: #666;
-    text-decoration: none;
-    font-size: 17px;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#formulaire .containerForm form p a:hover{
-    text-decoration: dashed underline;
-}
-main#formulaire .containerForm form input[type=submit]{
-    cursor: pointer;
-}
-/* Css de la page produit */
-main#produit h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #B36205;
-    padding: 10px;
-}
-main#produit > div{
-    padding: 20px;
-    height: 100vh;
-    display: grid;
-    gap: 10px;
-    grid-template-rows: 100px 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-main#produit > div > div img{
-    width: 100%;
-    height: 35vh;
-    border-radius: 33px;
-}
-main#produit > div .Titre{
-    display: flex;
-    align-items: center;
-    grid-column: 1 / -1;
-}
-main#produit > div .Texte{
-    grid-row: 2 / 4;
-}
-main#produit > div .Titre h1{
-    color: #B36205;
-    font-size: 35px;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-}
-main#produit > div .Texte p{
-    font-size: 25px;
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-    color: #666;
-}
-main#produit > div > div .Achat{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-    margin-top: auto;
-}
-main#produit > div > div .Achat ul{
-    background-color: #666;
-    border-radius: 10px;
-    padding:3px;
-}
-main#produit > div > div .Achat ul li{
-    color: #B36205;
-}
-main#produit > div > div .Achat ul li p{
-    color: #FFF;
-}
-main#produit > div > div .Achat a{
-    font-family: "Montserrat", "Bodoni Moda",Arial,sans-serif;
-    font-size: 20px;
-    padding: 15px 60px 15px 60px;
-    background-color: #666;
-    text-decoration: none;
-    color: #FFFAFA;
-    border-radius: 10px;
-}
-main#produit .Nouveautes .Titre{
-    justify-content: flex-start;
-}
-main#produit .Nouveautes .Texte{
-    grid-column: 3 / 5;
-}
-main#produit .LePlusVendu .Titre{
-    justify-content: flex-end;
-}
-main#produit .LePlusVendu .Texte{
-    grid-column: 1 / 3;
-}
-main#produit .Autres{
-    height: 60vh;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px 50vh;
-}
-main#produit .Autres .Cacher{
-    display: none;
-}
-main#produit .Autres .Titre{
-    justify-content: center;
-}
-main#produit p#afficheplus{
-    display: inline-block;
-    color: #B36205;
-    text-decoration: #B36205 underline;
-    padding-left: 20px;
-}
-main#produit p#affichemoins{
-    display: none;
-    color: #B36205;
-    text-decoration: #B36205 underline;
-    padding-left: 20px;
-}
-main#produit p#afficheplus:hover{
-    cursor: pointer;
-}
-main#produit p#affichemoins:hover{
-    cursor: pointer;
-}
-/* Page de profil */
-main#profil{
-    background-color: #000;
-}
-main#profil h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #B36205;
-}
-main#profil ul li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    background-color: #666;
-}
-main#profil a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    transition: color .3s ease-in-out;
-}
-main#profil a:hover{
-    color: #B36205;
-}
-/*Css de la pages admin*/
-main#admin{
-    background-color: #000;
-}
-main#admin h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #B36205;
-}
-main#admin ul li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    background-color: #666;
-}
-main#admin a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    transition: color .3s ease-in-out;
-}
-main#admin a:hover{
-    color: #B36205;
 }

@@ -1,5 +1,5 @@
 <?php
-$messages = array(
+$messages = array(//Créer un array pour stocker les infos des textes en anglais
     'fr' => 'French',
     'en' => 'English',
     'P1' => 'Home',
@@ -92,5 +92,8 @@ $messages = array(
     'PasConnect' => 'You are not logged in.',
     'SupReussi' => 'The shoe has been deleted.',
     'SupUserReussi' => 'The user has been deleted.',
-    'ErreurSup' => 'Error during deletion.'
+    'ErreurSup' => 'Error during deletion.',
+    'NewTexte' => 'Discover our latest collection, fresh from the design lab! Inspired by neon city vibes and urban energy, each pair blends bold style with maximum comfort. Perfect for those who like to stand out—even after dark.',
+    'BestSellTexte' => 'These are the favorites our community can’t get enough of! A perfect balance of modern design, everyday comfort, and standout colors. Explore the top picks that turn every step into a statement.',
+    'DescAPropos' => 'Here you will find everything you need to know about us.'
 );

@@ -6,7 +6,7 @@ $_SESSION['achat'] = NULL;
 $conn = connexpdo("Myparams");
 global $lang, $messages;
 if(isset($_SESSION['connexion'])){
-    if($_SESSION['connexion'] === false){
+    if($_SESSION['connexion'] !== True){//Si l'info connexion dans la session n'est pas True ou email n'est pas celle de l'admin,cela envoie vers la pages formulaire ou profil
         header('Location: formulaire.php');
         exit();
     }elseif($_SESSION['mail'] !== "matheo.gilles.student@elmarche.be"){
@@ -50,12 +50,12 @@ if(isset($_SESSION['connexion'])){
     <ul>
     <?php
     $emailAdmin = $_SESSION['mail'];
-    try {
+    try {//Va chercher id, nom, prenom, mail de chaque personne sauf admin
         $stmt = $conn->prepare("SELECT id,nom,prenom,mail FROM users WHERE mail != :mail");
         $stmt->execute(['mail' => $emailAdmin]);
-        $users = $stmt->fetchAll();
-        if ($users) {
-            foreach ($users as $user) {
+        $users = $stmt->fetchAll();//fetch récupère les données quand c une seule ligne mais fetchAll récup quand c plusieur ligne de données sous forme de tableau a 2 dimensions par exemple
+        if ($users) {//On vérifie si il y a des users dans la db sinon affiche qu'on a pas trouvé d'utilisateurs
+            foreach ($users as $user) {//Pour chaque utilisateur dans la table utilisateurs va affiche son id, nom, prenom, mail et un lien pour supprimer grâce à son id.
                 $id = $user['id'];
                 $nom = $user['nom'];
                 $prenom = $user['prenom'];
@@ -94,10 +94,10 @@ if(isset($_SESSION['connexion'])){
             </ul>
         </nav>
         <div class="icone">
-            <img src="../Images/instagram.png" alt="<?php echo secu($messages['alt9']); ?>">
-            <img src="../Images/youtube.png" alt="<?php echo secu($messages['alt10']); ?>">
-            <img src="../Images/snapchat.png" alt="<?php echo secu($messages['alt11']); ?>">
-            <img src="../Images/facebook.png" alt="<?php echo secu($messages['alt12']); ?>">
+            <a href="https://www.instagram.com/gilles.matheo08/" target="_blank"><img src="../Images/instagram.png" alt="<?php echo secu($messages['alt9'])?>"></a>
+            <a href="https://www.youtube.com/@Zedroxx08/" target="_blank"><img src="../Images/youtube.png" alt="<?php echo secu($messages['alt10'])?>"></a>
+            <a href="https://www.snapchat.com/add/matheogilles/" target="_blank"><img src="../Images/snapchat.png" alt="<?php echo secu($messages['alt11'])?>"></a>
+            <a href="https://www.facebook.com/Gilles.Matheo08/" target="_blank"><img src="../Images/facebook.png" alt="<?php echo secu($messages['alt12'])?>"></a>
         </div>
         <div class="copyright">
             <p>© copyright</p>

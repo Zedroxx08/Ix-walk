@@ -92,5 +92,8 @@ $messages = array(
     'PasConnect' => 'Vous n\'etes pas connecter',
     'SupReussi' => 'La chaussures a été supprimer',
     'SupUserReussi' => 'L\'utilisateur a été supprimer',
-    'ErreurSup' => 'Erreur lors de la suppression'
+    'ErreurSup' => 'Erreur lors de la suppression',
+    'BestSellTexte' => 'Nos modèles les plus populaires sont ceux que vous avez adorés ! Un mélange parfait entre élégance moderne, confort de tous les jours et couleurs tendance. Redécouvrez les essentiels qui font sensation à chaque pas.',
+    'NewTexte' => 'Plongez dans notre nouvelle collection fraîchement arrivée ! Inspirée des univers urbains et néon, chaque paire est conçue pour allier originalité, confort et style. Idéale pour ceux qui aiment marcher avec audace, même dans l’obscurité.',
+    'DescAPropos' => 'Vous trouvez dans cette partie toute les information a propos de nous.'
 );

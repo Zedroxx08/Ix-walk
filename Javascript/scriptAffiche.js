@@ -1,13 +1,13 @@
 const AffichePlus = document.getElementById('afficheplus')
 const AfficheMoins = document.getElementById('affichemoins')
-const autre = document.getElementsByClassName('Autres')[0]
+const autre = document.getElementsByClassName('Autres')[0]//autre est une variable qui récupère les éléments html où le nom de la classe est Autres (stocker dans une collection appellé HTMLCollection qui fonction de la même manière que les tableaux ou listes.)
 const Cacher = document.getElementsByClassName('Cacher')
 
 AffichePlus.addEventListener("click",display3)
 AfficheMoins.addEventListener("click",display4)
 
 function display3(){
-    for (let i = 0; i < Cacher.length; i++) {
+    for (let i = 0; i < Cacher.length; i++) { //Marche comme les for en python allant de Cacher 0 a longeur max de cacher
         Cacher[i].style.display = 'block'
     }
     AfficheMoins.style.display = 'inline-block'

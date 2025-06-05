@@ -1,4 +1,5 @@
 <?php
+// Fonction qui permet de se connecter a la db grace au paramètre Myparams qui va aller checher les paramètres de la db comme ip ou port etc
 function connexpdo($param)
 {
     include_once($param.".inc.php");

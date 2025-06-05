@@ -8,7 +8,7 @@ $_SESSION['SupUsers'] = NULL;
 $_SESSION['Sup'] = NULL;
 $conn = connexpdo("Myparams");
 global $lang,$messages;
-try{
+try{//Récupe tout les données des chaussures
     $stmt = $conn->prepare("SELECT * FROM chaussures");
     $stmt->execute();
     $chaussures = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -63,7 +63,7 @@ if(isset($_SESSION['achat'])){
         </div>
         <div class="element">
             <img src="../Images/ShoesGreenNeon.jpg" alt="<?php echo secu($chaussures[0]['nom_chaussure'])?>">
-            <div class="Achat">
+            <div class="Achat"><!-- $chaussures[0]['id'] correspond a prend id de la chaussures numéro 1 -->
                 <a href="acheter.php?id=<?php echo secu($chaussures[0]['id']) ?>"><?php echo secu($messages['acheter'])?></a>
                 <ul>
                     <li><p><?php echo secu($messages['NbPaire']) . " : " . secu($chaussures[0]['id'])?></p></li>
@@ -110,7 +110,7 @@ if(isset($_SESSION['achat'])){
             </div>
         </div>
         <div class="Texte">
-            <p>Texte qui decrit les nouvautés</p>
+            <p><?php echo secu($messages['NewTexte'])?></p>
         </div>
     </div>
     <div class="LePlusVendu">
@@ -166,7 +166,7 @@ if(isset($_SESSION['achat'])){
             </div>
         </div>
         <div class="Texte">
-            <p>Texte qui décrit les articles les plus vendu</p>
+            <p><?php echo secu($messages['BestSellTexte']) ?></p>
         </div>
     </div>
     <div class="Autres">
@@ -318,7 +318,7 @@ if(isset($_SESSION['achat'])){
             </div>
         </div>
     </div>
-    <p id="afficheplus"><?php echo secu($messages['affplus'])?></p>
+    <p id="afficheplus"><?php echo secu($messages['affplus'])?></p><!-- Element pour afficher les éléments avec la class cacher -->
     <p id="affichemoins"><?php echo secu($messages['affmoins'])?></p>
 </main>
 <footer id="footer">
@@ -341,10 +341,10 @@ if(isset($_SESSION['achat'])){
             </ul>
         </nav>
         <div class="icone">
-            <img src="../Images/instagram.png" alt="<?php echo secu($messages['alt9'])?>">
-            <img src="../Images/youtube.png" alt="<?php echo secu($messages['alt10'])?>">
-            <img src="../Images/snapchat.png" alt="<?php echo secu($messages['alt11'])?>">
-            <img src="../Images/facebook.png" alt="<?php echo secu($messages['alt12'])?>">
+            <a href="https://www.instagram.com/gilles.matheo08/" target="_blank"><img src="../Images/instagram.png" alt="<?php echo secu($messages['alt9'])?>"></a>
+            <a href="https://www.youtube.com/@Zedroxx08/" target="_blank"><img src="../Images/youtube.png" alt="<?php echo secu($messages['alt10'])?>"></a>
+            <a href="https://www.snapchat.com/add/matheogilles/" target="_blank"><img src="../Images/snapchat.png" alt="<?php echo secu($messages['alt11'])?>"></a>
+            <a href="https://www.facebook.com/Gilles.Matheo08/" target="_blank"><img src="../Images/facebook.png" alt="<?php echo secu($messages['alt12'])?>"></a>
         </div>
         <div class="copyright">
             <p>© copyright</p>

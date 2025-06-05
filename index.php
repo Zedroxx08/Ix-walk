@@ -1,7 +1,8 @@
 <?php
-include_once 'Config/config.php';
+include_once 'Config/config.php'; //Inclue le fichier config
 include_once "Config/AntiXss.php";
-global $lang,$messages;
+global $lang,$messages;//Déclare/Défini les valeurs de lang et messages car c'est des variables global
+//Reset les informations affichages quand on change de page
 $_SESSION['infoConn'] = NULL;
 $_SESSION['info'] = NULL;
 $_SESSION['achat'] = NULL;
@@ -9,18 +10,18 @@ $_SESSION['SupUsers'] = NULL;
 $_SESSION['Sup'] = NULL;
 ?>
 <!doctype html>
-<html lang="<?php echo secu($lang);?>">
+<html lang="<?php echo secu($lang);?>"><!--Défini la page en fonction de la lang selection qui se trouve dans le cookies-->
 <head>
-    <title><?php echo secu($messages['P1'])?></title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="Css/styles.css">
-    <script src="Javascript/script.js" defer></script>
+    <title><?php echo secu($messages['P1'])?></title><!--Titre de ma page-->
+    <meta charset="utf-8"><!--Methode d'encodage utf-8-->
+    <link rel="stylesheet" href="Css/styles.css"><!--Lien vers mon css-->
+    <script src="Javascript/script.js" defer></script><!--Import le script javascript et defer est un attribut qui permet de faire charger la page meme si le javascript ne veut aps être charger-->
 </head>
 <body>
 <header id="header">
-    <img src="Images/logo_grand.png" id="logo" alt="Logo">
-    <h1 id="NomSite">Ix-Walk</h1>
-    <nav>
+    <img src="Images/logo_grand.png" id="logo" alt="Logo"><!--Logo Header-->
+    <h1 id="NomSite">Ix-Walk</h1><!--Nom site-->
+    <nav><!--Nav header-->
         <ul>
             <li>
                 <a href="index.php"><?php echo secu($messages['P1'])?></a>
@@ -35,19 +36,19 @@ $_SESSION['Sup'] = NULL;
     </nav>
 </header>
 <main id="main">
-    <div class="hero">
+    <div class="hero"><!--Section Hero-->
         <img src="Images/Montagne.jpg" alt="<?php echo secu($messages['alt1'])?>" id="images1">
         <img src="Images/NuageWalkShoes.jpg" alt="<?php echo secu($messages['alt2'])?>" id="images2">
         <div class="slogan">
             <h1>Walk Together</h1>
         </div>
     </div>
-    <div class="APropos">
+    <div class="APropos"><!--Section A propos-->
         <div class="texte">
             <h1><?php echo secu($messages['Ap'])?></h1>
-            <p>Description</p>
+            <p><?php echo secu($messages['DescAPropos']) ?></p>
         </div>
-        <div class="containerAp">
+        <div class="containerAp"><!--Box qui contient mes informations tels que les valeurs-->
             <div class="box1">
                 <p><?php echo secu($messages['text1'])?></p>
             </div>
@@ -79,7 +80,7 @@ $_SESSION['Sup'] = NULL;
             <h1 id="t6"><?php echo secu($messages['info6'])?></h1>
         </div>
     </div>
-    <h1 id="titreChiffre"><?php echo secu($messages['Numbers'])?></h1>
+    <h1 id="titreChiffre"><?php echo secu($messages['Numbers'])?></h1><!--Section Statistique-->
     <div class="chiffre">
         <img src="Images/courir.png" alt="<?php echo secu($messages['alt3'])?>" id="img1">
         <div class="Avan1">
@@ -98,7 +99,7 @@ $_SESSION['Sup'] = NULL;
         </div>
     </div>
     <h1 id="contact">Contact</h1>
-    <div class="contact">
+    <div class="contact"><!--Section contact-->
         <div class="image">
             <img src="Images/ForetNeige.jpeg" alt="<?php echo secu($messages["alt13"])?>">
         </div>
@@ -117,7 +118,7 @@ $_SESSION['Sup'] = NULL;
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2552.367507007372!2d5.346115142080268!3d50.22903883045982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c04a811862caa9%3A0x1f66fcf39543b759!2sRue%20Saint-Roch%2C%206900%20Marche-en-Famenne!5e0!3m2!1sfr!2sbe!4v1745612381147!5m2!1sfr!2sbe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-    <h1 id="partenaire"><?php echo secu($messages['Np'])?></h1>
+    <h1 id="partenaire"><?php echo secu($messages['Np'])?></h1><!--Section Sponsor-->
     <div class="partenaire">
         <div class="box1">
             <a href="https://www.nike.com/" target="_blank">
@@ -194,7 +195,7 @@ $_SESSION['Sup'] = NULL;
     </div>
 </main>
 <footer id="footer">
-    <div class="DifLang" id="Flag">
+    <div class="DifLang" id="Flag"><!--Endroit appellé par le javascript si click sur le drapeau pour changer de langue-->
         <ul>
             <li>
                 <a href="index.php?lang=fr"><?php echo secu($messages['fr'])?></a>
@@ -207,12 +208,12 @@ $_SESSION['Sup'] = NULL;
         </ul>
         <img src="Images/croix.png" alt="<?php echo secu($messages['alt8'])?>" id="Croix">
     </div>
-    <div class="up"><a href="#" target="_top">UP</a></div>
-    <div class="containerFooter">
+    <div class="up"><a href="#" target="_top">UP</a></div><!--Bouton up-->
+    <div class="containerFooter"><!--Logo footer-->
         <div class="logo">
             <img src="Images/logo_grand.png" alt="Logo">
         </div>
-        <nav>
+        <nav><!--Nav footer-->
             <ul>
                 <li>
                     <a href="index.php"><?php echo secu($messages['P1'])?></a>
@@ -225,7 +226,7 @@ $_SESSION['Sup'] = NULL;
                 </li>
             </ul>
         </nav>
-        <div class="Lang">
+        <div class="Lang"><!--Affiche un image différente en fonction de la lang mais ne change pas id pour facilité dans le css et javascript-->
             <img src="Images/<?php
             if ($lang === 'fr'){
                 echo "france.png";
@@ -238,11 +239,11 @@ $_SESSION['Sup'] = NULL;
                 echo $messages['alt7'];
             }?>" id="France">
         </div>
-        <div class="icone">
-            <img src="Images/instagram.png" alt="<?php echo secu($messages['alt9'])?>">
-            <img src="Images/youtube.png" alt="<?php echo secu($messages['alt10'])?>">
-            <img src="Images/snapchat.png" alt="<?php echo secu($messages['alt11'])?>">
-            <img src="Images/facebook.png" alt="<?php echo secu($messages['alt12'])?>">
+        <div class="icone"><!--Lien vers mes contacts-->
+            <a href="https://www.instagram.com/gilles.matheo08/" target="_blank"><img src="Images/instagram.png" alt="<?php echo secu($messages['alt9'])?>"></a>
+            <a href="https://www.youtube.com/@Zedroxx08/" target="_blank"><img src="Images/youtube.png" alt="<?php echo secu($messages['alt10'])?>"></a>
+            <a href="https://www.snapchat.com/add/matheogilles/" target="_blank"><img src="Images/snapchat.png" alt="<?php echo secu($messages['alt11'])?>"></a>
+            <a href="https://www.facebook.com/Gilles.Matheo08/" target="_blank"><img src="Images/facebook.png" alt="<?php echo secu($messages['alt12'])?>"></a>
         </div>
         <div class="copyright">
             <p>© copyright</p>
